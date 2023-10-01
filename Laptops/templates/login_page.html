@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="{% static 'js/style.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'js/bootstrap.bundle.min.js' %}">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <link>
+
+
+
+    <title>Welcome</title>
+</head>
+
+<body>
+
+    <div class="container-fluid bg-light">
+
+        <!-- <img class="img-fluid d-flex justify-content-start navbar-brand ms-3 " src=" {% static 'img/dbcorp_logo.png' %}" alt="" width="150px" height="100px"> -->
+    </div>
+
+    <div class="login-page bg-light mt-0">
+        <div class="container">
+
+            <div class="row">
+                <span class="bg-danger  col-lg-10 offset-lg-1 mb-1">{% for i in messages %} {{i}}{% endfor %}</span>
+                <div class="col-lg-10 offset-lg-1">
+                    <h3 class="mb-3">Login </h3>
+                    <div class="bg-white shadow-lg rounded">
+                        <div class="row">
+                            <div class="col-md-7 pe-0">
+                                <div class="form-left h-100 py-5 px-5">
+                                    <form action=" {% url 'login' %}" class="row g-4" method="POST" onsubmit="return validation();">
+                                        {% csrf_token %}
+                                        <div class="col-12">
+                                            <label>Username<span class="text-danger">*</span></label>
+                                            <div class="input-group">
+                                                <div class="input-group-text"><i class="bi bi-person-fill"></i></div>
+                                                <input type="text" class="form-control" name="username" id="username" placeholder="Enter Username">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <label>Password<span class="text-danger">*</span></label>
+                                            <div class="input-group">
+                                                <div class="input-group-text"><i class="bi bi-lock-fill"></i></div>
+                                                <input type="password" class="form-control" name="password" id="password" placeholder="Enter Password">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="inlineFormCheck">
+                                                <label class="form-check-label" for="inlineFormCheck">Remember me</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <a href="#" class="float-end text-primary">Forgot Password?</a>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <button type="submit" class="btn btn-outline-warning px-4 float-end mt-4">login</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-md-5 ps-0 d-none d-md-block">
+                                <div class="form-right h-100 bg1 text-white text-center pt-5">
+
+                                    <h2 class="fs-1">Asset Management </h2>
+                                    <img class="img-fluid mt-2 " src=" {% static 'img/our-vision15-inner (1).gif' %} " alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+
+</html>

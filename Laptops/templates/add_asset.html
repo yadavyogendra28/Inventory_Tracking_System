@@ -1,0 +1,486 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+<div class="container-fluid  ">
+
+    <div class="row">
+
+        <div class="col col-lg-2 col-md-2 col-sm-4 col-10 border-1  bg2 " style="height: 500px;">
+
+            {% include "sidebar.html" %}
+
+        </div>
+
+
+        <div class="col col-lg-10 col-md-10 col-sm-8 col-10 bg-light overflow-scroll" style="height: 500px;">
+            <h4 class=" p-3 ">Add Asset </h4>
+            <div class="container mt-3 ">
+                <form action="{% url 'save_asset' %}" method="GET">
+
+
+                    <div class="row ">
+                        <div class="col col-lg-6 col-md-6 col-sm-6 col-12 ">
+
+
+                            <!-- <div>
+                                <label for="validationDefault01 " class="form-label ">Asset Id <span class="text-danger ">*</span></label>
+                                <input type="text" class="form-control" name="assetid">
+                            </div> -->
+                            <div>
+                                <label for="validationDefault04 " class="form-label ">Asset Type<span class="text-danger ">*</span></label>
+
+
+                                <select class="form-select" name="assettype" required>
+                                    <option selected disabled value="">Select</option>
+                                    <option>Laptop</option>
+                                    <option>Desktop</option>
+                                </select>
+
+                            </div>
+                            <div class="mt-1">
+                                <label for="validationDefault01 " class="form-label ">Company Name<span class="text-danger ">*</span></label>
+                                <input type="text" class="form-control" name="company" required>
+                            </div>
+                            <div class="mt-1">
+                                <label for="validationDefault01 " class="form-label ">Model <span class="text-danger ">*</span></label>
+                                <input type="text" class="form-control" name="model" required>
+                            </div>
+                            <div class="mt-1">
+                                <label for="validationDefault01 " class="form-label ">Serial No <span class="text-danger ">*</span></label>
+                                <input type="text" class="form-control" name="serial" required>
+                            </div>
+                            <div class="mt-1">
+                                <label for="validationDefault01 " class="form-label ">Host Name <span class="text-danger ">*</span></label>
+                                <input type="text" class="form-control" name="hostname" required>
+                            </div>
+                            <div class="mt-1">
+                                <label for="validationDefault01 " class="form-label ">Processor <span class="text-danger ">*</span></label>
+                                <input type="text" class="form-control" name="Processor" required>
+                            </div>
+                            <div class="mt-1">
+                                <label for="validationDefault01 " class="form-label ">Ram <span class="text-danger ">*</span></label>
+                                <input type="text" class="form-control" name="ram" required>
+                            </div>
+
+                            <div class="mt-1">
+                                <label for="validationDefault04 " class="form-label ">Storage Type</label>
+                                <select class="form-select " name="Storage_type" required>
+                                <option selected disabled value=" ">Select</option>
+                                <option>SSD</option>
+                                <option>HDD</option>
+                              </select>
+                            </div>
+
+                            <div class="mt-1">
+                                <label for="validationDefault01 " class="form-label mt-1">Storage <span class="text-danger ">*</span></label>
+                                <input type="text " class="form-control " name="Storage" required>
+                            </div>
+
+                            <div class="mt-1">
+                                <label for="validationDefault01 " class="form-label ">Screen Size <span class="text-danger ">*</span></label>
+                                <input type="text" class="form-control" name="screen_size" required>
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="col col-lg-6 col-md-6 col-sm-6 col-12 ">
+
+
+
+                            <div class="mt-1">
+                                <label for="validationDefault01 " class="form-label ">Purchaseing Date <span class="text-danger ">*</span></label>
+                                <input type="date" class="form-control " name="Purchaseing_Date">
+                            </div>
+                            <div class="mt-1">
+                                <label for="validationDefault01 " class="form-label ">Asset Age<span class="text-danger ">*</span></label>
+                                <input type="text " class="form-control " name="asset_age" required>
+                            </div>
+                            <div class="mt-1">
+                                <label for="validationDefault01 " class="form-label ">Sap Code<span class="text-danger ">*</span></label>
+                                <input type="text " class="form-control " name="sapcode" required>
+                            </div>
+                            <div class="mt-1">
+                                <label for="validationDefault04 " class="form-label  ">TBA</label>
+                                <select class="form-select " name="tba" onchange="tba_yes(this);">
+                                <option selected disabled value=" ">Select</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                              </select>
+                            </div>
+
+
+                            <!-- <div class="mt-1" id="ifYes" style="display: none;">
+                                <label for="validationDefault01 " class="form-label ">TBA Emp<span class="text-danger ">*</span></label>
+                                <input type="text " class="form-control " name="ttba_emp" required>
+                            </div> -->
+
+                            <div class="mt-1">
+                                <label for="validationDefault04 " class="form-label ">Lt/Dt Condition</label>
+                                <select class="form-select " name="ltdtcon" required>
+                                <option selected disabled value=" ">Select</option>
+                                <option>Working</option>
+                                <option>Not Working</option>
+                              </select>
+                            </div>
+                            <div class="mt-1">
+                                <label for="validationDefault01 " class="form-label ">Other Details <span class="text-danger ">*</span></label>
+                                <textarea class="form-control " name="other_details" required>
+                                </textarea>
+                            </div>
+                            <div class="mt-1">
+                                <label for="validationDefault01 " class="form-label ">Asset Location <span class="text-danger ">*</span></label>
+                                <!-- <input type="text " class="form-control " name="asset_location" required> -->
+                                <select class="form-select " name="asset_location" required>
+                                    <option selected disabled value=" ">Select</option>
+                                  <optgroup label="Bihar">
+                                     <option>Bhagalpur</option>
+                                     <option>Araria</option>  
+                                     <option>Banka</option>
+                                     <option>Bhagalpur</option>
+                                     <option>Bhagalpur Plant</option>
+                                     <option>Forbesganj</option> 
+                                     <option>Jamui</option>
+                                      <option>Katihar</option> 
+                                      <option>Khagadia</option>
+                                      <option>Khagaria</option>
+                                      <option>Kishanganj</option>
+                                      <option>Lakhisarai</option>
+                                      <option>Madhepura</option>
+                                      <option>Munger</option>
+                                      <option>Purnia</option>
+                                      <option>Saharsa</option>
+                                      <option>Sultanganj</option>
+                                      <option>Supaul</option>
+
+                                      <option> Muzzaffarpur</option>
+                                      <option>Bagha</option>
+                                      <option>Begusarai</option>
+                                      <option>Betia</option>
+                                      <option>Betiah</option>
+                                      <option>Bettiah</option>
+                                      <option>Bhabhua</option>
+                                      <option>Darbhanga</option>
+                                      <option>Darbhanga</option>
+                                      <option>Jahanabad</option>
+                                      <option>Madhubani</option>
+                                      <option>Motihari</option>
+                                      <option>Muzaffarpur Plant</option>
+                                      <option>Muzaffarpur-Press</option>
+                                      <option>Muzzaffarpur</option>
+                                      <option>Muzzaffarpur Plant</option>
+                                      <option>Narkatiyaganj</option>
+                                      <option>Raxaul</option>
+                                      <option>Samastipur</option>
+                                      <option>Sheohar</option>
+                                      <option>Sitamadhi</option>
+
+                                      <option value="Patna">Patna</option>
+                                      <option value="Arrah">Arrah</option>
+                                      <option value="Ara">Ara</option>
+                                      <option value="Arwal">Arwal</option>
+                                      <option value="Aurangabad - Bihar">Aurangabad - Bihar</option>
+                                      <option value="Bhabhua">Bhabhua</option>
+                                      <option value="Biharsharif">Biharsharif</option>
+                                      <option value="Bikramganj">Bikramganj</option>
+                                      <option value="Buxar">Buxar</option>
+                                      <option value="Chhapra">Chhapra</option>
+                                      <option value="City Office">City Office</option>
+                                      <option value="Dehri">Dehri</option>
+                                      <option value="Dumraon">Dumraon</option>
+                                      <option value="Gaya">Gaya</option>
+                                      <option value="Gaya Plant">Gaya Plant</option>
+                                      <option value="Gaya Project Office">Gaya Project Office</option>
+                                      <option value="Gopalganj">Gopalganj</option>
+                                      <option value="Hajipur">Hajipur</option>
+                                      <option value="Jahanabad">Jahanabad</option>
+                                      <option value="Mohania">Mohania</option>
+                                      <option value="Nawada">Nawada</option>
+                                      <option value="Patna City Bureau">Patna City Bureau</option>
+                                      <option value="Patna Plant">Patna Plant</option>
+                                      <option value="Purnea">Purnea</option>
+                                      <option value="Rohtas">Rohtas</option>
+                                      <option value="Sasaram">Sasaram</option>
+                                      <option value="Shekhpura">Shekhpura</option>
+                                      <option value="Siwan">Siwan</option>
+                                    </optgroup>
+
+                                    <optgroup label="Chandigarh">
+                                      <option value="Chandigarh">Chandigarh</option>
+                                      <option value="Chandigarh MYFM">Chandigarh MYFM</option>
+                                      <option value="Mohali">Mohali</option>
+                                      <option value="Sarhind Plant">Sarhind Plant</option>
+                                      <option value="Zirakpur">Zirakpur</option>
+                                      <option value="Panchkula">Panchkula</option>
+                                      <option value="Sirhind">Sirhind</option>
+                                    </optgroup>
+
+                                    <optgroup label="Chhattisgarh">
+                                      <option value="Bilaspur">Bilaspur</option>
+                                      <option value="Ambikapur">Ambikapur</option>
+                                      <option value="Baikunthpur">Baikunthpur</option>
+                                      <option value="Bilaspur">Bilaspur</option>
+                                      <option value="Bilaspur MYFM">Bilaspur MYFM</option>
+                                      <option value="Bilaspur Plant">Bilaspur Plant</option>
+                                      <option value="Koriya">Koriya</option>
+                                      <option value="Raigarh">Raigarh</option>
+                                      <option value="Bemetra">Bemetra</option>
+                                      <option value="Dongargarh">Dongargarh</option>
+                                      <option value="Janjgir">Janjgir</option>
+                                      <option value="Jashpur">Jashpur</option>
+                                      <option value="Jharsuguda">Jharsuguda</option>
+                                      <option value="Korba">Korba</option>
+                                      <option value="Raigarh">Raigarh</option>
+                                      <option value="Raigarh City">Raigarh City</option>
+                                      <option value="Raigarh Plant">Raigarh Plant</option>
+                                      <option value="Raigarh - DB Power">Raigarh - DB Power</option>
+                                      <option value="Raipur">Raipur</option>
+                                      <option value="Balod">Balod</option>
+                                      <option value="Baloda Bazar">Baloda Bazar</option>
+                                      <option value="Bhilai">Bhilai</option>
+                                      <option value="Dalli Rajra">Dalli Rajra</option>
+                                      <option value="Dantewada">Dantewada</option>
+                                      <option value="Dhamtari">Dhamtari</option>
+                                      <option value="Durg">Durg</option>
+                                      <option value="Jagdalpur">Jagdalpur</option>
+                                      <option value="Kanker">Kanker</option>
+                                      <option value="Kawardha">Kawardha</option>
+                                      <option value="Mahasamund">Mahasamund</option>
+                                      <option value="Raipur">Raipur</option>
+                                      <option value="Raipur MYFM">Raipur MYFM</option>
+                                      <option value="Rajnandgaon">Rajnandgaon</option>
+                                    </optgroup>
+                              
+                                    <optgroup label="Gujarat"> 
+                                        <option value="Ahmd_CG_Road_Office">Ahmd CG Road Office</option>
+                                        <option value="Ahmedabad">Ahmedabad</option>
+                                        <option value="Ahmedabad_CG_Road">Ahmedabad CG Road</option>
+                                        <option value="Ahmedabad_Digital">Ahmedabad Digital</option>
+                                        <option value="Ahmedabad_Plant">Ahmedabad Plant</option>
+                                        <option value="Ahmedabad_Press">Ahmedabad Press</option>
+                                        <option value="Ahmedbad_MYFM">Ahmedbad MYFM</option>
+                                        <option value="Anand">Anand</option>
+                                        <option value="Changodar">Changodar</option>
+                                        <option value="Deesa">Deesa</option>
+                                        <option value="Dwarka">Dwarka</option>
+                                        <option value="Gandhinagar">Gandhinagar</option>
+                                        <option value="Himatnagar">Himatnagar</option>
+                                        <option value="Himmatnagar">Himmatnagar</option>
+                                        <option value="Khanpur">Khanpur</option>
+                                        <option value="Mobri">Mobri</option>
+                                        <option value="Nadiad">Nadiad</option>
+                                        <option value="Surendra_Nagar">Surendra Nagar</option>
+                                        <option value="Surendranagar">Surendranagar</option>
+                                        <option value="Unjha">Unjha</option>
+
+                                        <option value="Bhavnagar">Bhavnagar</option>
+                                        <option value="Bhavnagar_HC_Road">Bhavnagar HC Road</option>
+                                        <option value="Mahuva">Mahuva</option>
+                                        <option value="Sihor">Sihor</option>
+                                        <option value="Talaja">Talaja</option>
+                                        <option value="Vallabhipur">Vallabhipur</option>
+
+
+                                        <option value="Bhuj">Bhuj</option>
+                                        <option value="Bhuj_Plant">Bhuj Plant</option>
+                                        <option value="Bhujodi-Press">Bhujodi-Press</option>
+                                        <option value="Gandhidham">Gandhidham</option>
+
+                                        <option value="Junagadh_City">Junagadh</option>
+                                        <option value="Amreli">Amreli</option>
+                                        <option value="Junagadh">Junagadh</option>
+                                        <option value="Junagadh_City">Junagadh City</option>
+                                        <option value="Porbandar">Porbandar</option>
+
+                                        <option value="Mehsana">Mehsana</option>
+                                        <option value="Bhandu">Bhandu</option>
+                                        <option value="Modasa">Modasa</option>
+                                        <option value="Palanpur">Palanpur</option>
+                                        <option value="Patan">Patan</option>
+                                        <option value="Visnagar">Visnagar</option>
+
+                                        <option value="Rajkot">Rajkot</option>
+                                        <option value="Jamnagar">Jamnagar</option>
+                                        <option value="Metoda">Metoda</option>
+                                        <option value="Morbi">Morbi</option>
+                                        <option value="Rajkot">Rajkot</option>
+                                        <option value="Rajkot_FM">Rajkot FM</option>
+
+                                        <option value="Surat">Surat</option>
+                                        <option value="Bardoli">Bardoli</option>
+                                        <option value="Chikli">Chikli</option>
+                                        <option value="Navsari">Navsari</option>
+                                        <option value="Silvasa">Silvasa</option>
+                                        <option value="Surat">Surat</option>
+                                        <option value="Surat_MYFM">Surat MYFM</option>
+                                        <option value="Surat_Plant">Surat Plant</option>
+                                        <option value="Una-Gujarat">Una-Gujarat</option>
+
+                                        <option value="Vadodara">Vadodara</option>
+                                        <option value="Anklesvar">Anklesvar</option>
+                                        <option value="Bharuch">Bharuch</option>
+                                        <option value="Godhra">Godhra</option>
+                                       <option value="Vadodara_Plant">Vadodara Plant</option>
+
+                                       <option value="Vapi">Vapi</option>
+                                       <option value="Pardi">Pardi</option>
+                                       <option value="Valsad">Valsad</option>
+                                       <option value="Vapi-Press">Vapi-Press</option>
+                                    
+                                    </optgroup>
+
+                                    <optgroup label="Himachal Pradesh">
+                                        <option value="Shimla">Shimla</option>
+                                        <option value="Dharamshala">Dharamshala</option>
+                                        <option value="Dharmshala">Dharmshala</option>
+                                        <option value="Hamirpur">Hamirpur</option>
+                                        <option value="Kullu">Kullu</option>
+                                        <option value="Mandi">Mandi</option>
+                                        <option value="Nahan">Nahan</option>
+                                        <option value="Nalgarh">Nalgarh</option>
+                                        <option value="Solan">Solan</option>
+                                    </optgroup>
+
+                                    
+                                    <optgroup label="Jharkhand">
+                                        <option value="Dhanbad">Dhanbad</option>
+                                        <option value="Bermo">Bermo</option>
+                                        <option value="Bokaro">Bokaro</option>
+                                        <option value="Dhanbad">Dhanbad</option>
+                                        <option value="Dhanbad_Plant">Dhanbad Plant</option>
+                                        <option value="Giridih">Giridih</option>
+                                        <option value="Jamtara">Jamtara</option>
+                                        <option value="Jharia">Jharia</option>
+                                        <option value="Katras">Katras</option>
+                                        
+                                        <option value=" Jamshedpur"> Jamshedpur</option>
+                                        <option value="Chaibasa">Chaibasa</option>
+                                        <option value="Chakdharpur">Chakdharpur</option>
+                                        <option value="Ghatshila">Ghatshila</option>
+                                        <option value="Ghatsila">Ghatsila</option>
+                                        <option value="Jamshedpur">Jamshedpur</option>
+                                        <option value="Jamshedpur_Plant">Jamshedpur Plant</option>
+                                        
+                                        <option value=" Ranchi"> Ranchi</option>
+                                        <option value="Chatra">Chatra</option>
+                                        <option value="Daltonganj">Daltonganj</option>
+                                        <option value="Garhwa">Garhwa</option>
+                                        <option value="Gumla">Gumla</option>
+                                        <option value="Hazaribag">Hazaribag</option>
+                                        <option value="Khuti">Khuti</option>
+                                        <option value="Kodarma">Kodarma</option>
+                                        <option value="Koderma">Koderma</option>
+                                        <option value="Lather">Lather</option>
+                                        <option value="Lohardaga">Lohardaga</option>
+                                        <option value="Palamu">Palamu</option>
+                                        <option value="Ramgargh">Ramgargh</option>
+                                        <option value="Ramgarh_Cant">Ramgarh Cant</option>
+                                        <option value="Ranchi">Ranchi</option>
+                                        <option value="Ranchi_Plant">Ranchi Plant</option>
+                                        <option value="Simdega">Simdega</option>
+                                    </optgroup>
+
+                                    <optgroup label=" Madhya Pradesh">
+                                   
+                             
+                                   
+                                 </select>
+
+                            </div>
+
+
+                            <div class="mt-1">
+                                <label for="validationDefault04 " class="form-label ">Asset State <span class="text-danger ">*</span></label>
+                                <select class="form-select " name="asset_state" required>
+                                <option selected disabled value=" ">Select</option>
+                               
+                      
+                       <option>Andhra Pradesh</option>
+                       <option>Arunachal Pradesh</option>
+                          <option>Assam</option>
+                      <option>Bihar</option>
+                          <option>Chhattisgarh</option>
+                       <option>Goa</option>
+                     <option>Gujarat</option>
+                       <option>Haryana</option>
+                          <option>Himachal Pradesh</option>
+                          <option>Jammu and Kashmir</option>
+                         <option>Jharkhand</option>
+                      <option>Karnataka</option>
+                         <option>Kerala</option>
+                        <option>Madhya Pradesh</option>
+                        <option>Maharashtra</option>
+                          <option>Manipur</option>
+                          <option>Meghalaya</option>
+                          <option>Mizoram</option>
+                      <option>Nagaland</option>
+                          <option>Odisha</option>
+                         <option>Punjab</option>
+                            <option>Rajasthan</option>
+                         <option>Sikkim</option>
+                         <option>Tamil Nadu</option>
+                         <option>Telangana</option>
+                        <option>Tripura</option>
+                           <option>Bengali</option>
+                          <option>Uttar Pradesh</option>
+                         <option>Uttarakhand</option>
+                           <option>West Bengal</option>
+                          <option>Andaman and Nicobar Islands</option>
+                              <option>Chandigarh</option>
+                          <option>Dadra and Nagar Haveli</option>
+                          <option>Daman and Diu</option>
+                         <option>Delhi</option>
+                            <option>Ladakh</option>
+                          <option>Lakshadweep</option>
+                              <option>Puducherry</option>
+                              </select>
+                            </div>
+
+                            <!-- <div>
+                                <label for="validationDefault04 " class="form-label ">Status</label>
+                                <select class="form-select " name="status" required>
+                                <option selected disabled value=" ">Select</option>
+                                <option>Assign</option>
+                                <option>Not Assign</option>
+                              </select>
+                            </div> -->
+
+                            <div class="mt-1">
+                                <label for="validationDefault04 " class="form-label ">Asset Scrap <span class="text-danger ">*</span></label>
+                                <select class="form-select " name="scrap" required>
+                                <option selected disabled value=" ">Select</option>
+                                <option>Yes</option>
+                                <option>No</option>
+                              </select>
+                            </div>
+
+
+                        </div>
+
+
+
+
+                    </div>
+                    {% comment %}
+                    <div class="col-12 mt-3 ">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                            <label class="form-check-label" for="invalidCheck2">
+                              Agree to terms and conditions
+                            </label>
+                        </div>
+                    </div> {% endcomment %}
+                    <button type="submit" class="btn btn-primary mt-2 ">Save</button>
+                </form>
+
+
+
+
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>{% endblock content %}

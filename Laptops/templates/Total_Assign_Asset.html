@@ -1,0 +1,78 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+<div class="container-fluid">
+
+    <div class="row">
+
+        <!-- <div class="col col-lg-2 col-md-2 col-sm-4 col-10 border-1  bg2 " style="height: 500px;">
+
+            {% include "sidebar.html" %}
+        </div> -->
+
+
+        <div class="col col-lg-12 col-md-12 col-sm-12 col-12 bg-light overflow-scroll" style="height: 500px;">
+            <h4 class="p-3">Assigned Asset List </h4>
+
+
+            <table class="table table-striped table-hover ">
+                <thead>
+                    <tr style='text-align:center;'>
+                        <th scope="col">S.R. </th>
+                        <th scope="col">Asset_Assign_Id</th>
+                        <th scope="col">Login_User</th>
+                        <th scope="col">Asset_Id</th>
+                        <th scope="col">Model</th>
+                        <th scope="col">Serial</th>
+                        <th scope="col">Host</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Purchaseing_Date</th>
+                        <th scope="col">TBA</th>
+                        <th scope="col">Emp_Id</th>
+                        <th scope="col"> Alias_Id</th>
+                        <th scope="col">Email </th>
+                        <th scope="col">Grade</th>
+                        <th scope="col">Designation</th>
+                        <th scope="col">Department</th>
+                        <th scope="col">Remove_Asset</th>
+
+
+
+
+
+                    </tr>
+                </thead>
+                {% for i in total_assign_data %}
+                <tr style='text-align:center;'>
+                    <th scope="row">{{forloop.counter}}</th>
+                    <td>{{i.assign_id}}</td>
+                    <td>{{i.login_user}}</td>
+
+                    <td>{{i.asset_id1}}</td>
+                    <td>{{i.asset_model}}</td>
+                    <td>{{i.serial_no}}</td>
+                    <td>{{i.host_name}}</td>
+                    <td>{{i.asset_location}}</td>
+                    <td>{{i.purchasing_date}}</td>
+                    <td>{{i.tba}}</td>
+
+                    <td>{{i.emp_id1}}</td>
+                    <td>{{i.alias_id}}</td>
+                    <td>{{i.email_address}}</td>
+                    <td>{{i.grade}}</td>
+                    <td>{{i.designation}}</td>
+                    <td>{{i.department}}</td>
+                    <td>
+                        <form action="{% url 'Remove_Assign_Asset' %}" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="assignId" value={{i.assign_id}}>
+                            <button type="submit" class="btn btn-primary mt-2 ">Remove</button>
+                        </form>
+                        <!-- <a href="#"> <button type="button " class="btn btn-primary mt-2 ">Remove</button></a> -->
+                    </td>
+                </tr> {% endfor %}
+            </table>
+
+
+        </div>
+
+    </div>
+</div>{% endblock content %}

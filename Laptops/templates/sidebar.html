@@ -1,0 +1,29 @@
+{% load static %}
+<img src="{% static 'img/user.png' %}" class="img-fluid p-3" style=" width: 100px;">
+<span class="text-capitalize fw-bold text-light fs-5 ms-2 ">{{user}}</span> <br> <br>
+
+<li class="{% if request.path == '/Dashboard' %} bg1 rounded-pill active  {% endif %} list-unstyled ">
+    <a href="{% url 'logined' %}" class="text-decoration-none text-light  fs-5 d-flex justify-content-start ps-3 "><i class="bi bi-house-door-fill "></i> <span class="ms-2 ">DashBoard</span> </a>
+</li>
+
+<li class="{% if request.path == '/Add_Asset' %} bg1 rounded-pill active  {% endif %} list-unstyled ">
+    <a href="{% url 'add_asset' %} " class="text-decoration-none text-light fs-5 d-flex justify-content-start ps-3"><i class="bi bi-laptop "></i> <span class="ms-2 ">Add Assets</span> </a>
+</li>
+
+<li class="{% if request.path == '/Add_Employees' %} bg1 rounded-pill active  {% endif %} list-unstyled ">
+    <a href="{% url 'Employees' %} " class="text-decoration-none text-light fs-5 d-flex justify-content-start ps-3 "> <i class="bi bi-people "></i> <span class="ms-2 ">Add Users</span> </a>
+</li>
+
+<li class="{% if request.path == '/Assign_Asset' %} bg1 rounded-pill active  {% endif %} list-unstyled ">
+    <a href="{% url 'Assign_Asset' %} " class="text-decoration-none text-light fs-5 d-flex justify-content-start ps-3 "> <i class="bi bi-people "></i> <span class="ms-2 ">Assign Asset </span> </a>
+</li>
+
+<li class="{% if request.path == '/Search_Assign_Emp' %} bg1 rounded-pill active  {% endif %} list-unstyled ">
+    <a href="{% url 'Search_Assign_Emp' %} " class="text-decoration-none text-light fs-5 d-flex justify-content-start ps-3 "> <i class="bi bi-person "></i> <span class="ms-2 ">Search By EmpId</span> </a>
+</li>
+<li class="{% if request.path == '/Search_Assign_AssetId' %} bg1 rounded-pill active  {% endif %} list-unstyled ">
+    <a href="{% url 'Search_Assign_AssetId' %} " class="text-decoration-none text-light fs-5 d-flex justify-content-start ps-3 "> <i class="bi bi-laptop "></i> <span class="ms-2 ">Search By AssetId</span> </a>
+</li>
+<li class="{% if request.path == '/search_by_city' %} bg1 rounded-pill active  {% endif %} list-unstyled ">
+    <a href="# " class="text-decoration-none text-light fs-5 d-flex justify-content-start ps-3"> <i class="bi bi-geo-alt-fill "></i> <span class="ms-2 ">Search By  City</span> </a>
+</li>

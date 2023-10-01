@@ -1,0 +1,154 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+<div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col col-lg-2 col-md-2 col-sm-4 col-10 border-1  bg2 " style="height: 500px;">
+
+            {% include "sidebar.html" %}
+        </div>
+
+
+        <div class="col col-lg-10 col-md-10 col-sm-8 col-10 bg-light overflow-scroll" style="height: 500px;">
+            <h4 class="p-3">Assign Asset To User</h4>
+            <!-- <span class="bg-danger  col-lg-10 offset-lg-1 mb-1">{% for i in messages %} {{i}}{% endfor %}</span> -->
+            {% if messages %}
+            <div class="alert alert-danger" role="alert">
+                {% for i in messages %} {{i}} {% endfor %}
+            </div>
+            {% endif %}
+            <div class="row">
+
+                <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
+                    <h6 class="mb-3">Select Asset </h6>
+
+
+                    <form action="{% url 'Search_asset'  %}" method="POST">
+                        {% csrf_token %}
+                        <select class="form-select" name="asset_id" required>
+                            <option selected disabled value="">Select Asset</option>
+                            {% for i in total_asset %}
+                            <option value={{i.asset_id}}>{{i.asset_id}}</option>
+                            {% endfor %} 
+                        </select>
+
+                        <button type="submit" class="btn btn-primary mt-2 ">Search</button>
+                    </form>
+
+                </div>
+
+                <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
+                    <h6 class="mb-3">Select User </h6>
+
+                    <form action="{% url 'Search_emp' assetid %}" method="POST">
+
+                        {% csrf_token %}
+                        <select class="form-select" name="emp_id" required>
+                            <option selected disabled value="">Select User</option>
+                           {% for i in  total_emp %}
+                            <option value={{i.emp_id}}>{{i.emp_id}}</option>
+                            {% endfor %}
+                           
+                        </select>
+
+                        <button type="submit" class="btn btn-primary mt-2 ">Search</button>
+                    </form>
+
+                </div>
+            </div>
+
+
+
+            <form action="{% url 'assign_asset_data' %}" method="POST">
+                {% csrf_token %}
+
+                <div class="row mt-2">
+
+
+
+                    <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
+                        <div>
+                            <label for="validationDefault01 " class="form-label mt-1">Asset ID</label>
+                            <input type="text" class="form-control" name="asset_id" value="{{assetid_data.asset_id}}" readonly>
+
+
+                        </div>
+
+                        <div class="mt-1">
+                            <label for="validationDefault01 " class="form-label mt-1">Asset Model No.</label>
+                            <input type="text" class="form-control" name="asset_model" value="{{assetid_data.asset_model}}" readonly>
+                        </div>
+
+                        <div class="mt-1">
+                            <label for="exampleFormControlInput1" class="form-label">Asset Serial No. </label>
+                            <input type="text" class="form-control" name="serial" value="{{assetid_data.serial_no}}" readonly>
+                        </div>
+
+
+                        <div class="mt-1">
+                            <label for="validationDefault01 " class="form-label ">Asset Host Name </label>
+                            <input type="text" class="form-control" name="hostname" value="{{assetid_data.host_name}}" readonly>
+                        </div>
+                        <div class="mt-1">
+                            <label for="validationDefault01 " class="form-label ">Asset Location </label>
+                            <input type="text" class="form-control" name="asset_location" value="{{assetid_data.asset_location}}" readonly>
+                        </div>
+                        <div class="mt-1">
+                            <label for="validationDefault01 " class="form-label ">Asset Purchaseing Date </label>
+                            <input type="text" class="form-control" name="Purchaseing_Date" value="{{assetid_data.purchasing_date}}" readonly>
+                        </div>
+                        <div class="mt-1">
+                            <label for="validationDefault01 " class="form-label ">TBA</label>
+                            <input type="text" class="form-control" name="tba" value="{{assetid_data.tba}}" readonly>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
+                        <div>
+                            <label for="validationDefault01 " class="form-label mt-1">User Emp Id</label>
+                            <input type="text" class="form-control" name="emp_id" value="{{empid_data.emp_id}}" readonly>
+
+                        </div>
+
+                        <div class="mt-1">
+                            <label for="validationDefault01 " class="form-label mt-1">Alias Id</label>
+                            <input type="text" class="form-control" name="alias_id" value="{{empid_data.alias_id}}" readonly>
+                        </div>
+
+                        <div class="mt-1">
+                            <label for="exampleFormControlInput1" class="form-label">Email address </label>
+                            <input type="email" class="form-control" name="email_address" value="{{empid_data.email_address}}" readonly>
+                        </div>
+
+
+                        <div class="mt-1">
+                            <label for="validationDefault01 " class="form-label ">Grade </label>
+                            <input type="text" class="form-control" name="grade" value="{{empid_data.grade}}" readonly>
+                        </div>
+                        <div class="mt-1">
+                            <label for="validationDefault01 " class="form-label ">Designation </label>
+                            <input type="text" class="form-control" name="designation" value="{{empid_data.designation}}" readonly>
+                        </div>
+                        <div class="mt-1">
+                            <label for="validationDefault01 " class="form-label ">Department </label>
+                            <input type="text" class="form-control" name="department" value="{{empid_data.department}}" readonly>
+                        </div>
+
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mt-5">Assign Asset </button>
+            </form>
+
+
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+</div>{% endblock content %}

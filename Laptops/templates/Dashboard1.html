@@ -1,0 +1,89 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+<div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col col-lg-2 col-md-2 col-sm-4 col-10 border-1  bg2 " style="height: 500px;">
+
+            {% include "sidebar.html" %}
+        </div>
+
+
+        <div class="col col-lg-10 col-md-10 col-sm-8 col-10 bg-light " style="height: 500px;">
+            <h4 class="p-3">Dashboard</h4>
+
+            <div class="container-fluid">
+
+                <div class="row">
+
+                    <div class="col col-lg-4 col-md-6 col-sm-8 col-12  mb-2 ">
+                        <div class="card bg-warning text-light shadow-lg border-3 " style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title"> Total Assets</h5>
+                                <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+                                <p class="card-text  ">{{totoal_asset}}</p>
+
+                                <a href="{% url 'total_asset' %}" class="card-link bg-gradient d-block text-center text-decoration-none text-light ">View All</a>
+                                <!-- <a href="#" class="card-link">Another link</a> -->
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col col-lg-4 col-md-6 col-sm-8 col-12  mb-2 ">
+                        <div class="card bg-info text-light shadow-lg border-3 " style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title"> Total Employees</h5>
+                                <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+                                <p class="card-text  ">{{total_emp}}</p>
+
+                                <a href="{% url 'total_emp' %}" class="card-link bg-gradient d-block text-center text-decoration-none text-light ">View All</a>
+                                <!-- <a href="#" class="card-link">Another link</a> -->
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="col col-lg-4 col-md-6 col-sm-8 col-12 mb-2">
+                        <div class="card bg-success text-light shadow-lg border-3" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">Assigned Asset</h5>
+
+                                <p class="card-text">{{assign_asset_c}}</p>
+                                <a href="{% url 'total_assign_asset' %}" class="card-link bg-gradient d-block text-center text-decoration-none text-light ">View All</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col col-lg-4 col-md-6 col-sm-8 col-12 mb-2">
+                        <div class="card bg-primary text-light shadow-lg border-3" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">Unassigned Assets</h5>
+
+                                <p class="card-text">{{unassign_asset_c}}</p>
+                                <a href="{% url 'total_unassign_asset' %}" class="card-link bg-gradient d-block text-center text-decoration-none text-light ">View All</a> </div>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="col col-lg-4 col-md-6 col-sm-8 col-12 mb-2">
+                        <div class="card bg-danger text-light shadow-lg border-3" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title ">Scrap Assets </h5>
+
+                                <p class="card-text">{{scrap_asset}}</p>
+                                <a href="{% url 'total_scrap_asset' %}" class="card-link bg-gradient d-block text-center text-decoration-none text-light ">View All</a> </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>{% endblock content %}

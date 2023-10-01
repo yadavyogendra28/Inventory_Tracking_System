@@ -1,0 +1,69 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+<div class="container-fluid">
+
+    <div class="row">
+
+        <!-- <div class="col col-lg-2 col-md-2 col-sm-4 col-10 border-1  bg2 " style="height: 500px;">
+
+            {% include "sidebar.html" %}
+        </div> -->
+
+
+        <div class="col col-lg-12 col-md-12 col-sm-12 col-12 bg-light overflow-scroll" style="height: 500px;">
+            <h4 class="p-3">Total Employees List </h4>
+
+
+            <table class="table table-striped table-hover ">
+                <thead>
+                    <tr style='text-align:center;'>
+                        <th scope="col">S.R. </th>
+                        <th scope="col">Emp_Id</th>
+                        <th scope="col">Login_User</th>
+                        <th scope="col"> Alias_Id</th>
+                        <th scope="col">Email </th>
+                        <th scope="col">Grade</th>
+                        <th scope="col">Designation</th>
+                        <th scope="col">Department</th>
+                        <th scope="col">Job_Profile</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Sate</th>
+                        <th scope="col">Region</th>
+                        <th scope="col">Business_Unit</th>
+                        <th scope="col">Assign_Status</th>
+                        <th scope="col">Delete_Emp</th>
+
+
+                    </tr>
+                </thead>
+                {% for i in total_emp %}
+                <tr style='text-align:center;'>
+                    <th scope="row">{{forloop.counter}}</th>
+                    <td>{{i.emp_id}}</td>
+                    <td>{{i.login_user}}</td>
+                    <td>{{i.alias_id}}</td>
+                    <td>{{i.email_address}}</td>
+                    <td>{{i.grade}}</td>
+                    <td>{{i.designation}}</td>
+                    <td>{{i.department}}</td>
+                    <td>{{i.job_profile}}</td>
+                    <td>{{i.user_location}}</td>
+                    <td>{{i.user_state}}</td>
+                    <td>{{i.region}}</td>
+                    <td>{{i.business_unit}}</td>
+                    <td>{{i.status}}</td>
+                    <td>
+                        <form action="{% url 'Delete_emp' %}" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="Del_empId" value={{i.emp_id}}>
+                            <button type="submit" class="btn btn-danger mt-2 ">Delete</button>
+                        </form>
+                    </td>
+
+                </tr> {% endfor %}
+            </table>
+
+
+        </div>
+
+    </div>
+</div>{% endblock content %}

@@ -1,0 +1,146 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+<div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col col-lg-2 col-md-2 col-sm-4 col-10 border-1  bg2 " style="height: 500px;">
+
+            {% include "sidebar.html" %}
+        </div>
+
+
+        <div class="col col-lg-10 col-md-10 col-sm-8 col-10 bg-light overflow-scroll" style="height: 500px;">
+            <h4 class="p-3">Add Employee  </h4>
+            
+         <form action="{% url 'save_emp_data' %}" method="POST">
+            {% csrf_token %}
+            <div class="row">
+
+                <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
+
+                  
+                            <div>
+                                <label for="validationDefault01 " class="form-label mt-1">User Emp Id<span class="text-danger ">*</span></label>
+                                <input type="text" class="form-control" name="emp_id" required>
+
+                            </div>
+
+                            <div class="mt-1">
+                                <label for="validationDefault01 " class="form-label mt-1">Alias Id<span class="text-danger ">*</span></label>
+                                <input type="text" class="form-control" name="alias_id" required>
+                            </div>
+
+                            <div class="mt-1">
+                                <label for="exampleFormControlInput1" class="form-label">Email address <span class="text-danger ">*</span></label>
+                                <input type="email" class="form-control" name="email_address" placeholder="name@example.com">
+                              </div>
+
+                            
+                            <div class="mt-1">
+                                <label for="validationDefault01 " class="form-label ">Grade <span class="text-danger ">*</span></label>
+                                <input type="text" class="form-control" name="grade" required>
+                            </div>
+                            <div class="mt-1">
+                                <label for="validationDefault01 " class="form-label ">Designation <span class="text-danger ">*</span></label>
+                                <input type="text" class="form-control" name="designation" required>
+                            </div>
+                            <div class="mt-1">
+                                <label for="validationDefault01 " class="form-label ">Department <span class="text-danger ">*</span></label>
+                                <input type="text" class="form-control" name="department" required>
+                            </div>
+
+                           
+
+                </div>
+
+
+
+                <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
+
+                    <div class="mt-1">
+                        <label for="validationDefault01 " class="form-label ">Job Profile <span class="text-danger ">*</span></label>
+                        <input type="text" class="form-control" name="job_profile" required>
+                    </div>
+
+                    <div class="mt-1">
+                        <label for="validationDefault01 " class="form-label ">User Location <span class="text-danger ">*</span></label>
+                        <input type="text " class="form-control " name="user_location" required>
+                    </div>
+
+
+                    <div class="mt-1">
+                        <label for="validationDefault04 " class="form-label ">User State <span class="text-danger ">*</span></label>
+                        <select class="form-select " name="user_state" required>
+                        <option selected disabled value=" ">Select</option>
+                       <option>Andhra Pradesh</option>
+                 <option>Arunachal Pradesh</option>
+               <option>Andhra Pradesh</option>
+               <option>Arunachal Pradesh</option>
+                  <option>Assam</option>
+              <option>Bihar</option>
+                  <option>Chhattisgarh</option>
+               <option>Goa</option>
+             <option>Gujarat</option>
+               <option>Haryana</option>
+                  <option>Himachal Pradesh</option>
+                  <option>Jammu and Kashmir</option>
+                 <option>Jharkhand</option>
+              <option>Karnataka</option>
+                 <option>Kerala</option>
+                <option>Madhya Pradesh</option>
+                <option>Maharashtra</option>
+                  <option>Manipur</option>
+                  <option>Meghalaya</option>
+                  <option>Mizoram</option>
+              <option>Nagaland</option>
+                  <option>Odisha</option>
+                 <option>Punjab</option>
+                    <option>Rajasthan</option>
+                 <option>Sikkim</option>
+                 <option>Tamil Nadu</option>
+                 <option>Telangana</option>
+                <option>Tripura</option>
+                   <option>Bengali</option>
+                  <option>Uttar Pradesh</option>
+                 <option>Uttarakhand</option>
+                   <option>West Bengal</option>
+                  <option>Andaman and Nicobar Islands</option>
+                      <option>Chandigarh</option>
+                  <option>Dadra and Nagar Haveli</option>
+                  <option>Daman and Diu</option>
+                 <option>Delhi</option>
+                    <option>Ladakh</option>
+                  <option>Lakshadweep</option>
+                      <option>Puducherry</option>
+                      </select>
+                    </div>
+
+                  
+
+                    <div class="mt-1">
+                        <label for="validationDefault01 " class="form-label mt-1">Region <span class="text-danger ">*</span></label>
+                        <input type="text " class="form-control " name="region" required>
+                    </div>
+
+                    <div class="mt-1">
+                        <label for="validationDefault01 " class="form-label ">Business Unit <span class="text-danger ">*</span></label>
+                        <input type="text" class="form-control" name="business_unit" required>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+            <button type="submit" class="btn btn-primary mt-3 ">Save</button>
+         </form>
+
+        </div>
+
+    </div>
+</div>{% endblock content %}

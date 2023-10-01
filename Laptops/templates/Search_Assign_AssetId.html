@@ -1,0 +1,83 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+<div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col col-lg-2 col-md-2 col-sm-4 col-10 border-1  bg2 " style="height: 500px;">
+
+            {% include "sidebar.html" %}
+        </div>
+
+
+        <div class="col col-lg-10 col-md-10 col-sm-8 col-10 bg-light overflow-scroll" style="height: 500px;">
+            <h4 class="p-3 ">Search Assign Asset Details </h4>
+
+            <div class="container-fluid ">
+
+                <form action="{% url 'Search_Assign_AssetId' %} " method="GET">
+                    <!-- {% csrf_token %} -->
+                    <div>
+                        <label for="validationDefault01 " class="form-label mt-1 ">Enter Emp Id<span class="text-danger ">*</span></label>
+                        <input type="text" class="form-control " name="asset_id" required>
+
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3 ">Search</button>
+                </form>
+
+
+                <table class="table table-striped table-hover ">
+                    <thead>
+                        <tr style='text-align:center;'>
+                            <th scope="col ">S.R. </th>
+                            <th scope="col ">Asset_Assign_Id</th>
+                            <th scope="col ">Login_User</th>
+                            <th scope="col ">Asset_Id</th>
+                            <th scope="col ">Model</th>
+                            <th scope="col ">Serial</th>
+                            <th scope="col ">Host</th>
+                            <th scope="col ">Location</th>
+                            <th scope="col ">Purchaseing_Date</th>
+                            <th scope="col ">TBA</th>
+                            <th scope="col ">Emp_Id</th>
+                            <th scope="col "> Alias_Id</th>
+                            <th scope="col ">Email </th>
+                            <th scope="col ">Grade</th>
+                            <th scope="col ">Designation</th>
+                            <th scope="col ">Department</th>
+
+
+
+
+
+
+                        </tr>
+                    </thead>
+                    {% for i in s_asset1 %}
+                    <tr style='text-align:center;'>
+                        <th scope="row ">{{forloop.counter}}</th>
+                        <td>{{i.assign_id}}</td>
+                        <td>{{i.login_user}}</td>
+
+                        <td>{{i.asset_id1}}</td>
+                        <td>{{i.asset_model}}</td>
+                        <td>{{i.serial_no}}</td>
+                        <td>{{i.host_name}}</td>
+                        <td>{{i.asset_location}}</td>
+                        <td>{{i.purchasing_date}}</td>
+                        <td>{{i.tba}}</td>
+
+                        <td>{{i.emp_id1}}</td>
+                        <td>{{i.alias_id}}</td>
+                        <td>{{i.email_address}}</td>
+                        <td>{{i.grade}}</td>
+                        <td>{{i.designation}}</td>
+                        <td>{{i.department}}</td>
+
+                    </tr> {% endfor %}
+                </table>
+
+
+            </div>
+
+        </div>
+    </div>{% endblock content %}
